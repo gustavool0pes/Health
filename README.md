@@ -1,9 +1,9 @@
 # Health
- Calculadora de IMC
+Calculadora de IMC
 
-Importante usar também esse código para as regras do firestore!
+**Importante:** Use o código abaixo nas **regras do Firestore** para configurar corretamente as permissões de leitura e escrita dos dados dos usuários.
 
-<!--
+```plaintext
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -18,7 +18,3 @@ service cloud.firestore {
     }
   }
 }
--->
-
-Junto com o código do projeto esse código deve ser colocado nas regras do firestore, para que se possa salvar os dados dos cadastros e também dos calculos do IMC dos usuários. 
-Eles criam as sub coleções no banco de dados do firestore.
