@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="display: flex; justify-content: center;">
+    <div style="display: flex; justify-content: center;">
+      <img src="assets/img/ginastica.png" alt="Logo" style="max-width: 45px;">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="box1">
+    <h4>Cadastrar IMC</h4>
+  </div>
+
+  <!--Formulário para calcular o IMC-->
+  <form (ngSubmit)="addRecord()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="nome" class="form-input" name="nome" required />
+    </div>
+  
+    <div class="form-group">
+      <label for="altura">Altura:</label>
+      <input type="number" id="altura" [(ngModel)]="altura" class="form-input" name="altura" step="any" required />
+    </div>
+  
+    <div class="form-group">
+      <label for="peso">Peso:</label>
+      <input type="number" id="peso" [(ngModel)]="peso" class="form-input" name="peso" required />
+    </div>
+  
+    <button type="button" (click)="addRecord()" class="send">{{ editingRecord ? 'Atualizar' : 'Adicionar' }}</button>
+
+  </form>
+  
+
+<!-- Tabela para mostrar os resultados -->
+<div *ngIf="records.length > 0" class="records-container">
+  <div class="record-header">
+    <div>Nome</div>
+    <div>Altura</div>
+    <div>Peso</div>
+    <div>IMC</div>
+    <div>Classificação</div>
+  </div>
+  <div *ngFor="let record of records" class="record-row">
+    <div class="record-data">
+      <div>{{ record.nome }}</div>
+      <div>{{ record.altura }}</div>
+      <div>{{ record.peso }}</div>
+      <div>{{ record.resultadoIMC?.imc.toFixed(2) }}</div>
+      <div>{{ record.resultadoIMC?.classificacao }}</div>
+    </div>
+    <div class="btns">
+      <button (click)="editRecord(record)">Editar</button>
+      <button (click)="deleteRecord(record)">Excluir</button>
+    </div>
+  </div>
+</div><br><br><br>
+</ion-content>
+
+<ion-footer>
+  <div class="nav-mobile">
+    <a href="/home" class="nav-link">
+      <ion-icon name="home-outline" style="color: #01A5B1; max-width: 25px;"></ion-icon>
+    </a>
+    <a href="#" class="nav-link" (click)="logout()">
+      <ion-icon name="exit-outline" style="color: #b10101; max-width: 25px;"></ion-icon>
+    </a>
+  </div>
+</ion-footer>
+

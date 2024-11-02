@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="display: flex; justify-content: center;">
+    <div class="menu" style="display: flex; justify-content: center;">
+      <img src="assets/img/ginastica.png" alt="Logo" style="max-width: 45px;">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="overflow-y: auto;">
+  <div class="conteudo">
+    <div class="wrapper">
+      <form (submit)="onRegister()">
+        <h1>Registrar</h1>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="fullName" name="fullName" placeholder="Nome" required>
+        </div>
+        <div class="input-box">
+          <input type="date" [(ngModel)]="birthDate" name="birthDate" placeholder="Data de Nascimento" required>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="email" name="email" placeholder="Email" required>
+          <img src="assets/img/user.png" class="img-user" alt="User" style="max-width: 20px;"> 
+        </div>
+        <div class="input-box">
+          <input type="password" [(ngModel)]="password" name="password" placeholder="Senha" required>
+          <img src="assets/img/lock.png" class="img-lock" alt="Cadeado" style="max-width: 20px;"> 
+        </div>
+        <div class="input-box">
+          <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirmar senha" required>
+          <img src="assets/img/lock.png" class="img-lock1" alt="Cadeado" style="max-width: 20px;"> 
+        </div>
+        <div class="button-container">
+          <button type="submit" class="btn">Registrar</button>
+        </div>        
+        <div class="registrar">
+          <p style="font-size: 1rem;">Já possui conta?<br><a href="/login" style="color: #ebb609; font-size: 1.2rem; text-decoration: none;">Clique aqui!</a></p>
+        </div>
+      </form>
+    </div>    
+  </div>  
+</ion-content>
+
+<ion-footer>
+  <div class="nav-mobile">
+    <a href="/home" class="nav-link">
+      <ion-icon name="home-outline" style="color: #01A5B1; max-width: 25px;"></ion-icon>
+    </a>
+  </div>
+</ion-footer>
